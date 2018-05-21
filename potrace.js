@@ -32,7 +32,7 @@
  *                                    optional parameter opt_type can be "curve"
  */
 
-var Potrace = (function() {
+var Potrace = function(window) {
 
   function Point(x, y) {
     this.x = x;
@@ -101,8 +101,8 @@ var Potrace = (function() {
     this.beta = new Array(n);
   }
 
-  var imgElement = document.createElement("img"),
-      imgCanvas = document.createElement("canvas"),
+  var imgElement = window.document.createElement("img"),
+      imgCanvas = window.document.createElement("canvas"),
       bm = null,
       pathlist = [],
       callback,
@@ -1301,4 +1301,6 @@ var Potrace = (function() {
     getSVG: getSVG,
     img: imgElement
   };
-})();
+};
+
+module.exports = Potrace;
